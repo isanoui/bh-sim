@@ -1,7 +1,7 @@
-const ID_LENGTH = 8;
+const ID_LENGTH = 8
 
 const generateId = (): string => {
-  let result = "";
+  let result = ""
 
   for (let i = 0; i < ID_LENGTH; i++) {
     // Randomly generate an ASCII code between 65-90 (A-Z) or 97-122 (a-z)
@@ -9,12 +9,12 @@ const generateId = (): string => {
     const charCode =
       Math.random() < 0.5
         ? Math.floor(Math.random() * 26) + 65 // A-Z
-        : Math.floor(Math.random() * 26) + 97; // a-z
+        : Math.floor(Math.random() * 26) + 97 // a-z
 
-    result += String.fromCharCode(charCode);
+    result += String.fromCharCode(charCode)
   }
 
-  return result;
-};
+  return result
+}
 
-export default generateId;
+export default generateId

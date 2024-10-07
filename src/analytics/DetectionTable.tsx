@@ -1,25 +1,25 @@
-import { ColDef } from "ag-grid-community";
-import { AgGridReact } from "ag-grid-react";
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-quartz.css";
-import { FC, useEffect, useMemo, useState } from "react";
-import { Detection } from "../types/detections";
+import { ColDef } from "ag-grid-community"
+import { AgGridReact } from "ag-grid-react"
+import "ag-grid-community/styles/ag-grid.css"
+import "ag-grid-community/styles/ag-theme-quartz.css"
+import { FC, useEffect, useMemo, useState } from "react"
+import { Detection } from "../types/detections"
 
 interface TableProps {
-  detections: Detection[];
+  detections: Detection[]
 }
 
 const DetectionTable: FC<TableProps> = ({ detections }) => {
-  const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000));
+  const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000))
 
   // Update currentTime state every second with new current unix time
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(Date.now());
-    }, 1000);
+      setCurrentTime(Date.now())
+    }, 1000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   // Column Definitions
   // subtract current unix time from detection start time to get detection duration
@@ -32,18 +32,14 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
       {
         field: "duration",
         headerName: "Duration (in seconds)",
-        valueGetter: (params) =>
-          Math.ceil((currentTime - params.data.start_time) / 1000),
+        valueGetter: (params) => Math.ceil((currentTime - params.data.start_time) / 1000),
       },
     ],
     [currentTime]
-  );
+  )
 
   return (
-    <div
-      className={"ag-theme-quartz-dark"}
-      style={{ width: "100vh", height: "50vh" }}
-    >
+    <div className={"ag-theme-quartz-dark"} style={{ width: "100vh", height: "50vh" }}>
       <AgGridReact
         rowData={detections}
         columnDefs={colDefs}
@@ -52,7 +48,7 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
         domLayout="autoHeight"
       />
     </div>
-  );
-};
+  )
+}
 
-export default DetectionTable;
+export default DetectionTable

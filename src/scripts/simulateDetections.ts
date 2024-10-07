@@ -1,10 +1,10 @@
-import { Detection, DetectionMessage } from "../types/detections";
-import generateId from "./utils/generateId";
-import generateRssi from "./utils/generateRssi";
+import { Detection, DetectionMessage } from "../types/detections"
+import generateId from "./utils/generateId"
+import generateRssi from "./utils/generateRssi"
 
 const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
-  const newDetections: Detection[] = [];
-  const detectionTime = Date.now();
+  const newDetections: Detection[] = []
+  const detectionTime = Date.now()
 
   // Each previous detection has an 80% chance of making it into the new detections array
   // All values remain the same other than rssi
@@ -13,9 +13,9 @@ const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
       newDetections.push({
         ...detection,
         rssi: generateRssi(detection.rssi),
-      });
+      })
     }
-  });
+  })
 
   // Add new droneId detection
   newDetections.push({
@@ -24,7 +24,7 @@ const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
     band: Math.random() < 0.5 ? "2.4GHz" : "5.8GHz",
     classification: Math.random() < 0.5 ? "OcuSync" : "Lightbridge",
     rssi: generateRssi(),
-  });
+  })
 
   // Return new "POST" message
   return {
@@ -33,7 +33,7 @@ const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
     msg_id: generateId(),
     detections: newDetections,
     timestamp: detectionTime,
-  };
-};
+  }
+}
 
-export default simulateDetections;
+export default simulateDetections
