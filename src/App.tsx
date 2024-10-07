@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import simulateDetections from "./scripts/simulateDetections";
 import { DetectionMessage } from "./types/detections";
-import DetectionTable from "./analytics/Table";
+import DetectionTable from "./analytics/DetectionTable";
 
 function App() {
   const [detections, setDetections] = useState<DetectionMessage[]>([]);
