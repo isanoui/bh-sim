@@ -30,6 +30,7 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
       { field: "start_time" },
       { field: "band" },
       { field: "classification" },
+      { field: "rssi" },
       {
         field: "duration",
         headerName: "Duration (in seconds)",
