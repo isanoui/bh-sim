@@ -7,6 +7,8 @@ Steps to run app
 2. "npm run dev" in root dir to start app (click browser link provided in terminal)
 
 
+
+
 Tech choice reasoning:
 - Because I had to make a script feeding data into a js environment, I chose to do the script in TS rather than Python because it's a much easier integration and in the same environment.
 - TS also has static typing which makes the code more robust and more specific compiler errors/warnings relative to JS.
