@@ -1,5 +1,5 @@
 // if prevRssi exists, then drone_id is same and number needs to be similar
-// otherwise random value between -110 and -65
+// otherwise random value between -110.0000 and -65.0000
 const generateRssi = (prevRssi?: number): number => {
   if (!prevRssi) return parseFloat((Math.random() * 45 - 110).toFixed(4));
 
