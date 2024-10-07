@@ -1,11 +1,10 @@
-import { detectionStorage } from "../detectionStorage";
-import { Detection } from "../types/detections";
+import { Detection, DetectionMessage } from "../types/detections";
 import generateId from "./utils/generateId";
 import generateRssi from "./utils/generateRssi";
 
-const simulateDetections = (prevDetections: Detection[]) => {
+const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
   const newDetections: Detection[] = [];
-  const detectionTime = Date.now();
+  const detectionTime = Math.floor(Date.now() / 1000);
 
   // Each previous detection has an 80% chance of making it into the new detections array
   // All values remain the same other than rssi
@@ -27,14 +26,14 @@ const simulateDetections = (prevDetections: Detection[]) => {
     rssi: generateRssi(),
   });
 
-  // Add new entry to storage array
-  detectionStorage.push({
+  // Return new POST message
+  return {
     msg_type: "detections",
     system: "detection_service",
     msg_id: generateId(),
     detections: newDetections,
     timestamp: detectionTime,
-  });
+  };
 };
 
 export default simulateDetections;
