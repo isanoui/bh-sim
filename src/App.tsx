@@ -4,8 +4,10 @@ import { DetectionMessage } from "./types/detections";
 import DetectionTable from "./analytics/DetectionTable";
 
 function App() {
+  // Detections "Database"
   const [detections, setDetections] = useState<DetectionMessage[]>([]);
 
+  // Our true script, calls our simulation function every 3 seconds and updates database state
   useEffect(() => {
     const interval = setInterval(() => {
       const msg = simulateDetections(

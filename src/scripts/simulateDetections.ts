@@ -4,7 +4,7 @@ import generateRssi from "./utils/generateRssi";
 
 const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
   const newDetections: Detection[] = [];
-  const detectionTime = Math.floor(Date.now() / 1000);
+  const detectionTime = Date.now();
 
   // Each previous detection has an 80% chance of making it into the new detections array
   // All values remain the same other than rssi
@@ -26,7 +26,7 @@ const simulateDetections = (prevDetections: Detection[]): DetectionMessage => {
     rssi: generateRssi(),
   });
 
-  // Return new POST message
+  // Return new "POST" message
   return {
     msg_type: "detections",
     system: "detection_service",

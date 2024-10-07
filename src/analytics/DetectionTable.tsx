@@ -15,7 +15,7 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
   // Update currentTime state every second with new current unix time
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(Math.floor(Date.now() / 1000));
+      setCurrentTime(Date.now());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -33,7 +33,7 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
         field: "duration",
         headerName: "Duration (in seconds)",
         valueGetter: (params) =>
-          Math.ceil(currentTime - params.data.start_time),
+          Math.ceil((currentTime - params.data.start_time) / 1000),
       },
     ],
     [currentTime]
