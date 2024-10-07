@@ -41,7 +41,7 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
   )
 
   return (
-    <div className={"ag-theme-quartz-dark"} style={{ width: "100vh", height: "50vh" }}>
+    <div className={"ag-theme-quartz-dark"} style={{ width: "100vh", height: "40vh" }}>
       <AgGridReact
         rowData={detections}
         columnDefs={colDefs}
