@@ -1,31 +1,41 @@
-import { useEffect, useState } from "react";
-import simulateDetections from "./scripts/simulateDetections";
-import { DetectionMessage } from "./types/detections";
-import DetectionTable from "./analytics/DetectionTable";
+import { useEffect, useState } from "react"
+import simulateDetections from "./scripts/simulateDetections"
+import { DetectionMessage } from "./types/detections"
+import DetectionTable from "./analytics/DetectionTable"
+import RssiHistogram from "./analytics/RssiHistogram"
 
 function App() {
   // Detections "Database"
-  const [detections, setDetections] = useState<DetectionMessage[]>([]);
+  const [detectionMessages, setDetectionMessages] = useState<DetectionMessage[]>([])
 
   // Our true script, calls our simulation function every 3 seconds and updates database state
   useEffect(() => {
     const interval = setInterval(() => {
-      const msg = simulateDetections(
-        detections[detections.length - 1]?.detections || []
-      );
-      setDetections((prevArray) => [...prevArray, msg]);
-    }, 3000);
+      const detectionMessage = simulateDetections(
+        detectionMessages[detectionMessages.length - 1]?.detections || []
+      )
 
-    return () => clearInterval(interval);
-  }, [detections]);
+      // append new message to "database" state
+      setDetectionMessages((messageArray) => [...messageArray, detectionMessage])
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [detectionMessages])
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
       <DetectionTable
-        detections={detections[detections.length - 1]?.detections || []}
+        detections={detectionMessages[detectionMessages.length - 1]?.detections || []}
       />
-    </>
-  );
+      <RssiHistogram messages={detectionMessages} />
+    </div>
+  )
 }
 
-export default App;
+export default App

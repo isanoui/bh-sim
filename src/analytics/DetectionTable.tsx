@@ -23,6 +23,7 @@ const DetectionTable: FC<TableProps> = ({ detections }) => {
 
   // Column Definitions
   // subtract current unix time from detection start time to get detection duration
+  // useMemo to cache data, saving processing cost
   const colDefs: ColDef[] = useMemo(
     () => [
       { field: "drone_id" },
