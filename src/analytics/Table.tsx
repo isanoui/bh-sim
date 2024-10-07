@@ -5,11 +5,11 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import { FC, useEffect, useMemo, useState } from "react";
 import { Detection } from "../types/detections";
 
-interface GridProps {
+interface TableProps {
   detections: Detection[];
 }
 
-const GridExample: FC<GridProps> = ({ detections }) => {
+const DetectionTable: FC<TableProps> = ({ detections }) => {
   const [currentTime, setCurrentTime] = useState(Math.floor(Date.now() / 1000));
 
   // Update currentTime state every second with new current unix time
@@ -55,4 +55,4 @@ const GridExample: FC<GridProps> = ({ detections }) => {
   );
 };
 
-export default GridExample;
+export default DetectionTable;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import simulateDetections from "./scripts/simulateDetections";
 import { DetectionMessage } from "./types/detections";
-import GridExample from "./analytics/Table";
+import DetectionTable from "./analytics/Table";
 
 function App() {
   const [detections, setDetections] = useState<DetectionMessage[]>([]);
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <GridExample
+      <DetectionTable
         detections={detections[detections.length - 1]?.detections || []}
       />
     </>
