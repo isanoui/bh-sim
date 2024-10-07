@@ -1,3 +1,3 @@
 import { DetectionMessage } from "./types/detections";
 
-export const detections: DetectionMessage[] = [];
+export const detectionStorage: DetectionMessage[] = [];

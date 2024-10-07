@@ -11,5 +11,5 @@ export type DetectionMessage = {
   system: "detection_service";
   msg_id: string;
   detections: Detection[];
-  timestamp: string;
+  timestamp: number;
 };
