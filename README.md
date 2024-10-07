@@ -1,50 +1,14 @@
-# React + TypeScript + Vite
+Blue Halo sim - Isaac Noui
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Steps to run app
 
-Currently, two official plugins are available:
+0. make sure node is installed
+1. clone repo and "npm install" in root dir
+2. "npm run dev" in root dir to start app (click browser link provided in terminal)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Tech choice reasoning:
+- Because I had to make a script feeding data into a js environment, I chose to do the script in TS rather than Python because it's a much easier integration and in the same environment.
+- TS also has static typing which makes the code more robust and more specific compiler errors/warnings relative to JS.
+- I chose React over Vue because I utilized an analytics library I've used in the past that was well liked by clients. However I prefer Vue's simplicity over React, it makes frontend a bit easier, but 
+  React has better analytic visualization library options.
