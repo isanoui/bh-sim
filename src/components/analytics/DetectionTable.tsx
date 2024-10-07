@@ -3,7 +3,7 @@ import { AgGridReact } from "ag-grid-react"
 import "ag-grid-community/styles/ag-grid.css"
 import "ag-grid-community/styles/ag-theme-quartz.css"
 import { FC, useEffect, useMemo, useState } from "react"
-import { Detection } from "../types/detections"
+import { Detection } from "../../types/detections"
 
 interface TableProps {
   detections: Detection[]

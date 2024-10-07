@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
 import simulateDetections from "./scripts/simulateDetections"
 import { Detection, DetectionMessage } from "./types/detections"
-import DetectionTable from "./analytics/DetectionTable"
-import RssiHistogram from "./analytics/RssiHistogram"
+import DetectionTable from "./components/analytics/DetectionTable"
+import RssiHistogram from "./components/analytics/RssiHistogram"
 
 function App() {
   // Detections Database

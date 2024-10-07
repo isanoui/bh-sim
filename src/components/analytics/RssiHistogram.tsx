@@ -1,7 +1,7 @@
 import { AgCharts } from "ag-charts-react"
 import { AgChartOptions } from "ag-charts-community"
 import { FC, useEffect, useMemo, useState } from "react"
-import { DetectionMessage } from "../types/detections"
+import { DetectionMessage } from "../../types/detections"
 
 interface HistogramProps {
   messages: DetectionMessage[]
